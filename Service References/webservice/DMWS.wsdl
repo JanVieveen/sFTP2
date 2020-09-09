@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://dockmanager.eu/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://dockmanager.eu/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://dockmanager.eu/">
+      <s:element name="retrieve_realisations">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="login" type="tns:LoginData" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LoginData">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LoginName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="retrieve_realisationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="retrieve_realisationsResult" type="tns:ArrayOfBooking" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBooking">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="booking" type="tns:booking" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="booking">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="errormessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="reference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="reference2" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ent_id" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt_planned" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt1" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt2" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt3" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt4" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt5" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt6" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt7" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt8" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="dt" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="sit_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="car_name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="action" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Reservation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="calloff" type="tns:CallOff" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CallOff">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="login" type="tns:LoginData" />
+          <s:element minOccurs="0" maxOccurs="1" name="MessageNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="messageDateTime" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipperID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipperName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="action" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="goods_description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipperRef" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderRef" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierRef" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Nweight" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Gweight" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="LM" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Count" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Volume" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="VolumeUnit" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Pallets" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="CarrierInstructions" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locations" type="tns:ArrayOfLocationStruct" />
+          <s:element minOccurs="1" maxOccurs="1" name="carrier" type="tns:carrierStruct" />
+          <s:element minOccurs="0" maxOccurs="1" name="reference" type="tns:ArrayOfReferenceStruct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfLocationStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="locationStruct" type="tns:locationStruct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="locationStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="locationID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationPostalcode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locatonMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationDirections" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="locationRemarks" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="locationDateTime1" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="locationDateTime2" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="carrierStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="carrierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierRef" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierRemarks" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierVehicle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="carrierTrailer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Drivername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DriverRemarks" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfReferenceStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="referenceStruct" type="tns:referenceStruct" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="referenceStruct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ref_qualifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ref_value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ReservationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ReservationResult" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MessageNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="response" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="processed" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="retrieve_realisationsSoapIn">
+    <wsdl:part name="parameters" element="tns:retrieve_realisations" />
+  </wsdl:message>
+  <wsdl:message name="retrieve_realisationsSoapOut">
+    <wsdl:part name="parameters" element="tns:retrieve_realisationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReservationSoapIn">
+    <wsdl:part name="parameters" element="tns:Reservation" />
+  </wsdl:message>
+  <wsdl:message name="ReservationSoapOut">
+    <wsdl:part name="parameters" element="tns:ReservationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="DMWSSoap">
+    <wsdl:operation name="retrieve_realisations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Smartway booking retrieve</wsdl:documentation>
+      <wsdl:input message="tns:retrieve_realisationsSoapIn" />
+      <wsdl:output message="tns:retrieve_realisationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Reservation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Smartway calloff</wsdl:documentation>
+      <wsdl:input message="tns:ReservationSoapIn" />
+      <wsdl:output message="tns:ReservationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DMWSSoap" type="tns:DMWSSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="retrieve_realisations">
+      <soap:operation soapAction="http://dockmanager.eu/retrieve_realisations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reservation">
+      <soap:operation soapAction="http://dockmanager.eu/Reservation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="DMWSSoap12" type="tns:DMWSSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="retrieve_realisations">
+      <soap12:operation soapAction="http://dockmanager.eu/retrieve_realisations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Reservation">
+      <soap12:operation soapAction="http://dockmanager.eu/Reservation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DMWS">
+    <wsdl:port name="DMWSSoap" binding="tns:DMWSSoap">
+      <soap:address location="http://per.nl:8008/DMWS.asmx" />
+    </wsdl:port>
+    <wsdl:port name="DMWSSoap12" binding="tns:DMWSSoap12">
+      <soap12:address location="http://per.nl:8008/DMWS.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
